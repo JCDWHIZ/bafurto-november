@@ -1,0 +1,398 @@
+{
+  "info": {
+    "_postman_id": "7ce9cfc5-0006-40d3-9891-5ae75eeeca2e",
+    "name": "food delivery",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "30123754",
+    "_collection_link": "https://go.postman.co/collection/30123754-7ce9cfc5-0006-40d3-9891-5ae75eeeca2e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Food Category",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"new food\",\r\n    \"isActive\": true\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/food/category",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "food",
+            "category"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "success",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"new food\",\r\n    \"isActive\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/food/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "food",
+                "category"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "Content-Length",
+              "value": "153"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"99-fSp98iwMqwvw4rW7tE0g2Bz9+RI\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 21 Jan 2026 12:32:55 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"FoodCategory created succesfully\",\n    \"foodCategory\": {\n        \"name\": \"new food\",\n        \"isActive\": true,\n        \"menuItems\": [],\n        \"_id\": \"6970c77620400ed084a9dc92\",\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Food Category",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/food/category",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "food",
+            "category"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Food Category",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/food/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "food",
+                "category"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "Content-Length",
+              "value": "320"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"140-W7kmu3iXpBEapsTi47S/EDpVfRw\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 21 Jan 2026 12:49:03 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"message\": \"FoodCategory!\",\n    \"foodCategory\": [\n        {\n            \"_id\": \"6970c77620400ed084a9dc92\",\n            \"name\": \"new food\",\n            \"isActive\": true,\n            \"menuItems\": [],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6970c9a0e2111c1f4a41124c\",\n            \"name\": \"new food\",\n            \"isActive\": true,\n            \"menuItems\": [],\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6970c9a2e2111c1f4a41124e\",\n            \"name\": \"new food\",\n            \"isActive\": true,\n            \"menuItems\": [],\n            \"__v\": 0\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Food Category",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/food/category/:id",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "food",
+            "category",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "6970c9a2e2111c1f4a41124e"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Food Category",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/food/category/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "food",
+                "category",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "6970c9a2e2111c1f4a41124e"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "142"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"8e-LFKu5Qi0JKdLJFIbkwIDwZNzudE\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 21 Jan 2026 12:54:03 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Food Category Deleted\",\n    \"foodCategory\": {\n        \"_id\": \"6970c9a2e2111c1f4a41124e\",\n        \"name\": \"new food\",\n        \"isActive\": true,\n        \"menuItems\": [],\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Food Category",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"somehting\",\r\n    \"isActive\": false\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/food/category/:id",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "food",
+            "category",
+            ":id"
+          ],
+          "variable": [
+            {
+              "key": "id",
+              "value": "6970c9a2e2111c1f4a41124e"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Delete Food Category",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/food/category/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "food",
+                "category",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "6970c9a2e2111c1f4a41124e"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "142"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"8e-LFKu5Qi0JKdLJFIbkwIDwZNzudE\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 21 Jan 2026 12:54:03 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Food Category Deleted\",\n    \"foodCategory\": {\n        \"_id\": \"6970c9a2e2111c1f4a41124e\",\n        \"name\": \"new food\",\n        \"isActive\": true,\n        \"menuItems\": [],\n        \"__v\": 0\n    }\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    }
+  ]
+}

@@ -3,6 +3,7 @@ import { connectToDb } from "./config/db";
 import { configDotenv } from "dotenv";
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
+const foodCategoryRoutes = require("./routes/foodCategory");
 const app = express();
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/auth", authRoutes);
+app.use("/api/food/category", foodCategoryRoutes);
 
 app.get("/", (req, res) => {
   res.send("<h1>hello world, welcome to the home page</h1>");
