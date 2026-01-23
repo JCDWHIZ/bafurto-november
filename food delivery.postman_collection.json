@@ -14,7 +14,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"name\": \"new food\",\r\n    \"isActive\": true\r\n}",
+          "raw": "{\r\n    \"name\": \"new food 11111\",\r\n    \"isActive\": true,\r\n    \"menuItems\": [\r\n        {\r\n            \"name\":\"test\",\r\n            \"description\": \"description\",\r\n            \"price\": 40404,\r\n            \"imageUrl\": \"http://logo.com\",\r\n            \"isAvailable\": true\r\n        }\r\n    ]\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -363,6 +363,14 @@
           "body": "{\n    \"message\": \"Food Category Deleted\",\n    \"foodCategory\": {\n        \"_id\": \"6970c9a2e2111c1f4a41124e\",\n        \"name\": \"new food\",\n        \"isActive\": true,\n        \"menuItems\": [],\n        \"__v\": 0\n    }\n}"
         }
       ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
     }
   ],
   "event": [
