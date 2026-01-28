@@ -11,10 +11,25 @@ type MenuItem = {
   isAvailable: boolean;
 };
 
+type MenuItemUpdateData = {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  isAvailable: boolean;
+};
+
 type FoodCategory = {
   name: string;
   isActive: boolean;
   menuItems: MenuItem[];
+};
+
+type FoodCategoryUpdateData = {
+  name: string;
+  isActive: boolean;
+  menuItems: MenuItemUpdateData[];
 };
 
 export const createFoodCategory = async (req: Request, res: Response) => {
@@ -81,7 +96,7 @@ export const deleteFoodCatgory = async (req: Request, res: Response) => {
 };
 export const updateFoodCategory = async (req: Request, res: Response) => {
   const { id } = req.params;
-  const { name, isActive } = req.body;
+  const { name, isActive, menuItems } = req.body as FoodCategoryUpdateData;
 
   // this query finds using the id and then updates the infomation passed
   //   const foodCategory = await FoodCategory.findByIdAndUpdate(id, {
@@ -93,11 +108,15 @@ export const updateFoodCategory = async (req: Request, res: Response) => {
     _id: id,
   });
 
+  console.log("food category", foodCategory);
+
   if (foodCategory == null) {
     return res.status(404).json({
       message: "Food Category Not Found",
     });
   }
+
+  const errors: string[] = [];
 
   await FoodCategory.updateOne(
     {
@@ -106,12 +125,58 @@ export const updateFoodCategory = async (req: Request, res: Response) => {
     {
       name,
       isActive,
+      menuItems: [],
     },
   );
 
-  return res.status(200).json({
-    message: "Food Category updated successfully",
+  menuItems.forEach(async (item: MenuItemUpdateData) => {
+    const menu = await MenuItem.create({
+      name: item.name,
+      description: item.description,
+      price: item.price,
+      imageUrl: item.imageUrl,
+      isAvailable: item.isAvailable,
+      foodCategoryId: foodCategory._id,
+    });
+    foodCategory.menuItems.push(menu._id);
+    await foodCategory.save();
+
+    // const menu = await MenuItem.findOne({
+    //   _id: item._id,
+    // });
+    // console.log("menu", menu);
+    // if (menu == null) {
+    //   errors.push(`item with object Id ${item._id} not found`);
+    //   return;
+    // } else {
+    //   await MenuItem.updateOne(
+    //     {
+    //       _id: item._id,
+    //     },
+    //     {
+    //       name: item.name,
+    //       description: item.description,
+    //       price: item.price,
+    //       imageUrl: item.imageUrl,
+    //       isAvailable: item.isAvailable,
+    //     },
+    //   );
+    // }
   });
+
+  console.log("errors", errors);
+
+  if (errors.length > 0) {
+    return res.status(400).json({
+      message: "An Error Occoured",
+      errors,
+    });
+  } else {
+    return res.status(200).json({
+      message: "Food Category updated successfully",
+      foodCategory,
+    });
+  }
 };
 export const getFoodCategoryWithMenuItems = async (
   req: Request,
