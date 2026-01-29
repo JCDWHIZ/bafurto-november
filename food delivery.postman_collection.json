@@ -14,7 +14,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"name\": \"new food 11111\",\r\n    \"isActive\": true,\r\n    \"menuItems\": [\r\n        {\r\n            \"name\":\"test\",\r\n            \"description\": \"description\",\r\n            \"price\": 40404,\r\n            \"imageUrl\": \"http://logo.com\",\r\n            \"isAvailable\": true\r\n        }\r\n    ]\r\n}",
+          "raw": "{\r\n    \"name\": \"new food 11111\",\r\n    \"isActive\": true,\r\n    \"menuItems\": [\r\n        {\r\n            \"_id\": \"sajdhja\",\r\n            \"name\":\"test\",\r\n            \"description\": \"description\",\r\n            \"price\": 40404,\r\n            \"imageUrl\": \"http://logo.com\",\r\n            \"isAvailable\": true\r\n        }\r\n    ]\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -365,14 +365,212 @@
       ]
     },
     {
-      "name": "New Request",
+      "name": "Register a user",
       "request": {
-        "method": "GET",
-        "header": []
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"ahsdghd@ksdfk.com\",\r\n    \"password\": \"asjhdahsdkja\",\r\n    \"firstName\": \"\",\r\n    \"phoneNumber\": \"\",\r\n    \"lastName\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth",
+            "register"
+          ]
+        }
       },
-      "response": []
+      "response": [
+        {
+          "name": "Register a user",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"ahsdghd1@ksdfk.com\",\r\n    \"password\": \"asjhdahsdkja\",\r\n    \"firstName\": \"test\",\r\n    \"phoneNumber\": \"09098987876\",\r\n    \"lastName\": \"user\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "Content-Length",
+              "value": "271"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"10f-VfNpfXI9bnMxta6lQJH+zJU9zXw\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 28 Jan 2026 13:12:11 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"user\": {\n        \"firstName\": \"test\",\n        \"lastName\": \"user\",\n        \"email\": \"ahsdghd1@ksdfk.com\",\n        \"password\": \"$2b$10$KkFffRfO9C7hZR9SuQcOrO8drXCCy4TVD5lHElJ5AKtxw0H2k.0mi\",\n        \"phoneNumber\": \"09098987876\",\n        \"role\": \"user\",\n        \"_id\": \"697a0b2b51ced960c3668a61\",\n        \"__v\": 0\n    },\n    \"message\": \"User Created successfully\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "login user",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"email\": \"ahsdghd1@ksdfk.com\",\r\n    \"password\": \"asjhdahsdkja\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/auth",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "auth"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "login user",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\": \"ahsdghd1@ksdfk.com\",\r\n    \"password\": \"asjhdahsdkja\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": "",
+              "type": "text"
+            },
+            {
+              "key": "Content-Length",
+              "value": "250"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"fa-RpDlDCU5JtHuAkRaH9hv2TB8gv8\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 28 Jan 2026 13:37:30 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [
+            {
+              "expires": "Invalid Date",
+              "domain": "",
+              "path": ""
+            }
+          ],
+          "body": "{\n    \"message\": \"Login Successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5N2EwYjJiNTFjZWQ5NjBjMzY2OGE2MSIsImVtYWlsIjoiYWhzZGdoZDFAa3NkZmsuY29tIiwiaWF0IjoxNzY5NjA3NDUwLCJleHAiOjE3Njk2MDkyNTB9.jUV5iKWt35hIJs8D5SIlZjDYcAqVkgvNsX_XeH9tMkM\"\n}"
+        }
+      ]
     }
   ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{accessToken}}",
+        "type": "string"
+      }
+    ]
+  },
   "event": [
     {
       "listen": "prerequest",
@@ -400,6 +598,10 @@
   "variable": [
     {
       "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "accessToken",
       "value": ""
     }
   ]

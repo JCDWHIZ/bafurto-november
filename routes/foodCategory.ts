@@ -5,9 +5,10 @@ import {
   getFoodCategoryWithMenuItems,
   updateFoodCategory,
 } from "../controllers/foodCategoryController";
+import { authMiddleware } from "../middleware/authMiddleware";
 const router = express.Router();
 
-router.route("/").post(createFoodCategory);
+router.route("/").post(authMiddleware, createFoodCategory);
 router.route("/").get(getFoodCategoryWithMenuItems);
 router.route("/:id").delete(deleteFoodCatgory);
 router.route("/:id").put(updateFoodCategory);

@@ -32,7 +32,8 @@ type FoodCategoryUpdateData = {
   menuItems: MenuItemUpdateData[];
 };
 
-export const createFoodCategory = async (req: Request, res: Response) => {
+export const createFoodCategory = async (req: any, res: Response) => {
+  console.log(req.user);
   const { name, isActive, menuItems } = req.body as FoodCategory;
 
   const foodCategory = await FoodCategory.create({
